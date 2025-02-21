@@ -123,3 +123,35 @@ CREATE TABLE IF NOT EXISTS detalle_pedido (
 	CONSTRAINT fk_detalle_pedido_servicio
     FOREIGN KEY (id_servicio) REFERENCES servicio(id_servicio)
 );
+
+/*Cración de usuarios*/
+INSERT INTO usuario (nombre, apellido, email, contrasenia, rol, telefono)
+VALUES
+('Juan', 'Perez', 'juan.perez@hotmail.com', 'password123', 'cliente', '3001234567'),
+('Maria', 'Garcia', 'maria.garcia@gmail.com', 'micontraseña', 'cliente', '3101234567'),
+('Carlos', 'Rodriguez', 'carlos.rodriguez@hotmail.com', 'contraseña123', 'cliente', '3201234567'),
+('Laura', 'Martinez', 'laura.martinez@gmail.com', 'laurita123', 'cliente', '3012345678'),
+('Luis', 'Gomez', 'luis.gomez@hotmail.com', 'pepito5678', 'cliente', '3112345678'),
+('Ana', 'Lopez', 'ana.lopez@gmail.com', 'contraseña456', 'cliente', '3212345678'),
+('Fernando', 'Torres', 'fernando.torres@hotmail.com', '2023007', 'cliente', '3023456789'),
+('Sandra', 'Sanchez', 'sandra.sanchez@gmail.com', '4598sanchez', 'admin', '3123456789'),
+('Jorge', 'Ramirez', 'jorge.ramirez@hotmail.com', 'jr345622', 'admin', '3223456789'),
+('Lucia', 'Diaz', 'lucia.diaz@gmail.com', '27772Lucia', 'admin', '3034567890');
+
+select * from mascota;
+
+/*Creación de mascotas por usuario*/
+INSERT INTO mascota (id_usuario, nombre, tipo, raza, edad, peso, notas_adicionales)
+VALUES
+-- Mascotas para usuarios "cliente"
+(1, 'Michi', 'gato', 'Criollo', 3, 4.5, 'Le gusta dormir todo el día'),
+(2, 'Firulais', 'perro', 'Labrador', 5, 25.0, 'Es muy juguetón'),
+(3, 'Nala', 'gato', 'Criollo', 2, 3.8, 'Es muy cariñosa'),
+(4, 'Rocky', 'perro', 'Beagle', 4, 20.0, 'Le encanta correr al aire libre'),
+(5, 'Simba', 'gato', 'Persa', 1, 4.0, 'Tiene un pelaje muy largo'),
+(6, 'Max', 'perro', 'Golden Retriever', 6, 30.0, 'Es muy amigable con los niños'),
+(7, 'Luna', 'perro', 'Bulldog', 3, 22.0, 'Le gusta mucho comer'),
+-- Mascotas para usuarios "admin"
+(8, 'Charlie', 'perro', 'Poodle', 2, 7.5, 'Es muy inteligente'),
+(9, 'Roro', 'otro', 'tortuga', 10, 1.2, 'Es muy tranquila'),
+(10, 'Pepito', 'otro', 'periquito', 1, 0.05, 'Canta todas las mañanas');
