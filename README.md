@@ -160,6 +160,19 @@ CREATE TABLE IF NOT EXISTS detalle_pedido (
     FOREIGN KEY (id_servicio) REFERENCES servicio(id_servicio)
 );
 
+--relación uno a muchos: 1 user = varias categorías
+DROP TABLE IF EXISTS categoria;
+CREATE TABLE IF NOT EXISTS categoria (
+    id_categoria SMALLINT UNSIGNED AUTO_INCREMENT,
+    id_usuario SMALLINT UNSIGNED NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    CONSTRAINT pk_categoria
+		PRIMARY KEY(id_categoria),
+	CONSTRAINT fk_categoria_usuario
+		FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+);
+
 -- Inserción de usuarios en la tabla "usuario"
 INSERT INTO usuario (nombre, apellido, email, contrasenia, rol, telefono)
 VALUES
